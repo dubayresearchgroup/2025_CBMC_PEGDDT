@@ -16,7 +16,11 @@ def get_binomial(fraction, fragment_size):
 def get_maldi_ssr(filled_surface_sites, num_iterations, nn_threshold, target_fractions, fragment_size):
     """
     Input:
-    - filled_surface_sites : 
+    - filled_surface_sites : array : coordinates of sulfur anchor positions typed as 1 or 2 depending on ligand identity
+    - num_iterations : int : defines the number of MALDI fragmentation samples to run (typical is 50,000x but for larger, more dense, monolayers a larger value will result in better sampling)
+    - nn_threshold : float/int : defines the nearest neighbor threshold that the function will consider part of the same fragment (default is 6, though this value should depend on the first solvation shell of the anchor-anchor g(r)).
+    - target_fractions : list of floats : the binomial distribution to compare the obtained MALDI distribution to in order to obtain the SSR value
+    - fragment_size : int : The maximum number of 1 type of ligand present in the desired fragment family (i.e. Au4L4 would mean fragment_size = 4). Ideally, multiple fragment families should be considered.
     """
     fragments = [0] * (fragment_size + 1)
     filled_surface_sites_np = [[entry[0], np.array(entry[1])] for entry in filled_surface_sites]
@@ -200,4 +204,5 @@ if __name__=="__main__":
     axs[4].set_xlabel('# DDT in Fragment')
     axs[0].set_ylabel('Fraction')
     fig.suptitle("Surface Fraction PEG ($x_{\mathrm{PEG}}$)", fontsize=9.5)
+
     fig.savefig('figure_4.png', format='png', dpi=600)
