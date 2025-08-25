@@ -1,0 +1,25 @@
+import "silver.lt"
+import "ddt.lt"
+import "2ethoxyE.lt"
+
+silvers = new SILVER[776]
+ddts = new DDT[70]
+2EEs = new 2EE[70]
+
+write_once("In Init"){
+    units real
+    atom_style full
+    pair_style hybrid/overlay lj/cut/coul/debye 0.2 10.0 12.0 morse 10.0
+    bond_style hybrid harmonic
+    angle_style hybrid harmonic
+    dihedral_style hybrid opls
+    improper_style hybrid cvff
+    special_bonds amber
+    dielectric 24.35
+}    
+write_once("Data Boundary"){
+    -60.0 60.0 xlo xhi
+    -60.0 60.0 ylo yhi
+    -60.0 60.0 zlo zhi
+}
+
