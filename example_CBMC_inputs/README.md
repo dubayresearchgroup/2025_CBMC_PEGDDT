@@ -7,3 +7,6 @@ This directory contains:
 5) system.in.init -- contains LAMMPS system initialization parameters.
 6) system.in.settings -- contains pair, bond, angle, and dihedral coeffs
 7) system.lt -- input file for moltemplate used in the creation of the system.data file
+
+
+LAMMPS version stable_29Oct2020 was used
