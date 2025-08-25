@@ -1,6 +1,6 @@
 oplsUA{
     write_once("Data Masses"){
-        @atom:Ag    107.8682
+        @atom:Au    196.9700
         @atom:C0    12.01100
         @atom:C2    14.02700
         @atom:C3    15.03500
@@ -40,7 +40,7 @@ oplsUA{
         @improper:COOC   @atom:C0 @atom:O2 @atom:O1 @atom:C2
     }   
     write_once("In Settings"){
-        pair_coeff @atom:Ag @atom:Ag lj/cut/coul/debye  0.036  3.148 4.0 4.0
+        pair_coeff @atom:Au @atom:Au lj/cut/coul/debye  0.036  3.148
         pair_coeff @atom:C0 @atom:C0 lj/cut/coul/debye  0.105  3.750
         pair_coeff @atom:C2 @atom:C2 lj/cut/coul/debye  0.118  3.905
         pair_coeff @atom:C3 @atom:C3 lj/cut/coul/debye  0.175  3.905
@@ -51,15 +51,15 @@ oplsUA{
         pair_coeff @atom:H  @atom:H  lj/cut/coul/debye  0.000  0.000
         pair_coeff @atom:OE @atom:OE lj/cut/coul/debye  0.120  2.900
         
-        pair_coeff @atom:Ag @atom:C0 lj/cut/coul/debye  0.061  3.449 10.0 10.0
-        pair_coeff @atom:Ag @atom:C2 lj/cut/coul/debye  0.065  3.527 10.0 10.0
-        pair_coeff @atom:Ag @atom:C3 lj/cut/coul/debye  0.079  3.527 10.0 10.0
-        pair_coeff @atom:Ag @atom:S  morse              5.58   0.746  2.868
-        pair_coeff @atom:Ag @atom:OH lj/cut/coul/debye  0.078  3.109 10.0 10.0
-        pair_coeff @atom:Ag @atom:O1 lj/cut/coul/debye  0.078  3.074 10.0 10.0
-        pair_coeff @atom:Ag @atom:OE lj/cut/coul/debye  0.087  3.054 10.0 10.0
-        pair_coeff @atom:Ag @atom:O2 lj/cut/coul/debye  0.087  3.054 10.0 10.0
-        pair_coeff @atom:Ag @atom:H  lj/cut/coul/debye  0.000  0.000 10.0 10.0
+        pair_coeff @atom:Au @atom:C0 lj/cut/coul/debye  0.061  3.449
+        pair_coeff @atom:Au @atom:C2 lj/cut/coul/debye  0.065  3.527
+        pair_coeff @atom:Au @atom:C3 lj/cut/coul/debye  0.079  3.527
+        pair_coeff @atom:Au @atom:S  morse              5.58   0.746  2.868
+        pair_coeff @atom:Au @atom:OH lj/cut/coul/debye  0.078  3.109
+        pair_coeff @atom:Au @atom:O1 lj/cut/coul/debye  0.078  3.074
+        pair_coeff @atom:Au @atom:OE lj/cut/coul/debye  0.087  3.054
+        pair_coeff @atom:Au @atom:O2 lj/cut/coul/debye  0.087  3.054
+        pair_coeff @atom:Au @atom:H  lj/cut/coul/debye  0.000  0.000
         pair_coeff @atom:C0 @atom:C2 lj/cut/coul/debye  0.111  3.828
         pair_coeff @atom:C0 @atom:C3 lj/cut/coul/debye  0.136  3.828
         pair_coeff @atom:C0 @atom:S  lj/cut/coul/debye  0.162  3.650
