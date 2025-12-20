@@ -83,37 +83,38 @@ if __name__=="__main__":
     num_ligands_2_len = 6 #The length of ligand 2 (2EE has 1 sulfur, 1 oxygen, and 4 carbons = 6)
 
     ssrs_from_janus_configs = np.genfromtxt('./janus_fragment_distributions.txt', skip_header=1, usecols=1, dtype=float)
-ssrs_from_janus_configs_std = np.genfromtxt('./janus_fragment_distributions.txt', skip_header=1, usecols=2, dtype=float)
-avg_ssrs = [0.022111111111111113, 0.07744444444444445, 0.12455555555555556, 0.14922222222222226, 0.19172222222222224, 0.22927777777777777, 0.21605555555555558, 0.1831111111111111, 0.08272222222222222]
-std_ssrs = [0.013943891091278363, 0.027522157179306804, 0.0358069239459233, 0.038810874128487285, 0.050206026149541005, 0.06141914789701223, 0.038108721985367404, 0.03309227652235637, 0.011473668189746253]
+    ssrs_from_janus_configs_std = np.genfromtxt('./janus_fragment_distributions.txt', skip_header=1, usecols=2, dtype=float)
+    avg_ssrs = [0.022111111111111113, 0.07744444444444445, 0.12455555555555556, 0.14922222222222226, 0.19172222222222224, 0.22927777777777777, 0.21605555555555558, 0.1831111111111111, 0.08272222222222222]
+    std_ssrs = [0.013943891091278363, 0.027522157179306804, 0.0358069239459233, 0.038810874128487285, 0.050206026149541005, 0.06141914789701223, 0.038108721985367404, 0.03309227652235637, 0.011473668189746253]
+    
+    janus_character = []
+    janus_character_error = []
+    for i in range(len(fractions)):
+        a,b = propagate_division(avg_ssrs[i], std_ssrs[i], ssrs_from_janus_configs[i], ssrs_from_janus_configs_std[i])
+        janus_character.append(a)
+        janus_character_error.append(b)
+    print(janus_character)
+    plt.figure(figsize=(8, 3.5))
+    plt.errorbar(x=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9], y=janus_character,  yerr=janus_character_error,  color='k',  capsize=5,  marker='o',  linestyle='-')
+    plt.xlabel(r'Surface Fraction PEG ($x_{\mathrm{PEG}}$)')
+    plt.ylabel(r'$\overline{\mathrm{SSR}}_{\mathrm{sim}} \,/\, \overline{\mathrm{SSR}}_{\mathrm{Janus}}$')
+    plt.ylim(0.0, 1.2)
+    plt.xlim(0.05, 0.95)
+    plt.yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0], fontsize='small')
+    plt.xticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+    #plt.axvline(x=0, color='k', linewidth=3.5)
+    plt.axvline(x=0.1, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.2, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.3, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.4, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.5, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.6, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.7, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.8, color='k', linestyle=':', alpha=0.15)
+    plt.axvline(x=0.9, color='k', linestyle=':', alpha=0.15)
+    #plt.legend(loc='upper center', frameon=False, fontsize='large')
+    plt.tick_params(axis='both', which='major', labelsize=12)
+    plt.tight_layout()
+    
+    plt.savefig('janus_character.png', format='png', dpi=600)
 
-janus_character = []
-janus_character_error = []
-for i in range(len(fractions)):
-    a,b = propagate_division(avg_ssrs[i], std_ssrs[i], ssrs_from_janus_configs[i], ssrs_from_janus_configs_std[i])
-    janus_character.append(a)
-    janus_character_error.append(b)
-print(janus_character)
-plt.figure(figsize=(8, 3.5))
-plt.errorbar(x=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9], y=janus_character,  yerr=janus_character_error,  color='k',  capsize=5,  marker='o',  linestyle='-')
-plt.xlabel(r'Surface Fraction PEG ($x_{\mathrm{PEG}}$)')
-plt.ylabel(r'$\overline{\mathrm{SSR}}_{\mathrm{sim}} \,/\, \overline{\mathrm{SSR}}_{\mathrm{Janus}}$')
-plt.ylim(0.0, 1.2)
-plt.xlim(0.05, 0.95)
-plt.yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0], fontsize='small')
-plt.xticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-#plt.axvline(x=0, color='k', linewidth=3.5)
-plt.axvline(x=0.1, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.2, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.3, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.4, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.5, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.6, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.7, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.8, color='k', linestyle=':', alpha=0.15)
-plt.axvline(x=0.9, color='k', linestyle=':', alpha=0.15)
-#plt.legend(loc='upper center', frameon=False, fontsize='large')
-plt.tick_params(axis='both', which='major', labelsize=12)
-plt.tight_layout()
-
-plt.savefig('janus_character.png', format='png', dpi=600)
