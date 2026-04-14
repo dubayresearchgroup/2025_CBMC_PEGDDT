@@ -123,9 +123,9 @@ oplsUA{
         dihedral_coeff @dihedral:CCCO2  opls   0.000   0.000   0.000   0.000
         dihedral_coeff @dihedral:CCO1H  opls   1.500   5.500   0.000   0.000
         dihedral_coeff @dihedral:OCOH   opls   0.000   5.500   0.000   0.000
-        dihedral_coeff @dihedral:SCCOE  opls   0.000   0.351  -0.106   1.530   
-        dihedral_coeff @dihedral:CCOC   opls   0.000   1.441  -0.325   1.109
-        
+        dihedral_coeff @dihedral:SCCOE  opls   0.702  -0.212   3.060   0.000   
+        dihedral_coeff @dihedral:CCOC   opls   2.882  -0.650   2.218   0.000
+         
         improper_coeff @improper:COOC   cvff  10.500  -1  2
     }
 }
