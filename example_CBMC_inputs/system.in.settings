@@ -76,13 +76,13 @@ angle_coeff 7  harmonic  80.0  109.5
 
 dihedral_coeff 2   opls   1.411  -0.271   3.145   0.000
 dihedral_coeff 1   opls   1.411  -0.271   3.145   0.000
-dihedral_coeff 6  opls   1.876   0.000   0.000   0.000
-dihedral_coeff 7  opls   0.702  -0.212   3.060   0.000
-dihedral_coeff 11   opls   0.834  -0.116   0.747   0.000
-dihedral_coeff 8  opls   1.000   0.546   0.450   0.000
-dihedral_coeff 9  opls   0.000   0.000   0.000   0.000
-dihedral_coeff 12  opls   1.500   5.500   0.000   0.000
-dihedral_coeff 10   opls   0.000   5.500   0.000   0.000
+dihedral_coeff 5  opls   1.876   0.000   0.000   0.000
+dihedral_coeff 6  opls   0.702  -0.212   3.060   0.000
+dihedral_coeff 10   opls   0.834  -0.116   0.747   0.000
+dihedral_coeff 7  opls   1.000   0.546   0.450   0.000
+dihedral_coeff 8  opls   0.000   0.000   0.000   0.000
+dihedral_coeff 11  opls   1.500   5.500   0.000   0.000
+dihedral_coeff 9   opls   0.000   5.500   0.000   0.000
 dihedral_coeff 3  opls   0.702  -0.212   3.060   0.000   
 dihedral_coeff 4   opls   2.882  -0.650   2.218   0.000
 
